@@ -66,7 +66,7 @@ The CAP_CHECKPOINT_RESTORE (and SYS_PTRACE, which is also required for checkpoin
 Use the following command to start the application in a Docker container:
 
 ```
-docker run --cap-add CHECKPOINT_RESTORE --cap-add SYS_PTRACE -d -v $(pwd)/storage:/storage -w /storage --name petclinic-app-container bellsoft/liberica-runtime-container:jdk-21-crac-slim-glibc java -Xmx512m -XX:CRaCCheckpointTo=/storage/checkpoint-spring-petclinic -jar spring-petclinic-3.3.0-SNAPSHOT.jar
+docker run --cap-add CHECKPOINT_RESTORE --cap-add SYS_PTRACE -d -v $(pwd)/storage:/storage -w /storage -p 8090:8080 --name petclinic-app-container bellsoft/liberica-runtime-container:jdk-21-crac-slim-glibc java -Xmx512m -XX:CRaCCheckpointTo=/storage/checkpoint-spring-petclinic -jar spring-petclinic-3.3.0-SNAPSHOT.jar
 ```
 If you use a Linux distribution with an older kernel version, you can you the --priviledged flag instead of CAP_CHECKPOINT_RESTORE and SYS_PTRACE (however, this is not the best practice to run containers with elevated permissions).
 
