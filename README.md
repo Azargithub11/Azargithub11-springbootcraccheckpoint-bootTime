@@ -53,7 +53,7 @@ We should also copy the Petclinic's jar file to the “storage” to use in a do
 
 
 ```
-cp target/spring-petclinic-3.2.0-SNAPSHOT.jar ./storage/
+cp target/spring-petclinic-3.3.0-SNAPSHOT.jar ./storage/
 ```
 # Start the application in a Docker container
 
